@@ -66,7 +66,9 @@ Once the program starts, the user is asked to set a new "quantum CPU's time".  T
 This struct is composed by 2 integer values: the first value represents the exact moment the process needs a resource (the number of cycle for which it needs is), the second the waiting time for the resource to be used again. Here is shown an example:
     
     The resources are: (8,30) (5,25) (6,30). 
-    After 8 clock's cycles the process is using that resource it will need a new one (that will be available after 30 clock's cycles), then it will need again a resource after 5 clock's cycles (that will be available after 25 clock's cycles), then again after 6 cycles and so on... 
+    After 8 clock's cycles the process is using that resource it will need a new one (that will be available 
+    after 30 clock's cycles), then it will need again a resource after 5 clock's cycles (that will be available 
+    after 25 clock's cycles), then again after 6 cycles and so on... 
 
 #### Process Class
 * PID is the Process IDentifier

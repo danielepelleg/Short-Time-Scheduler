@@ -1,0 +1,56 @@
+@startuml
+title Class Diagram
+
+left to right direction
+
+class Resource <<struct>> {
+    + cycle : int
+    + availability : int
+}
+
+class Process{
+    - PID : int    
+    - totCPUtime : int
+    - CPUused = 0 : int
+    - resNeed : vector<Resource>
+    + finished : int
+    + expectedTime : int
+    + Process(int PID, int totCPUtime)
+    + bool needRes()
+    + bool needAwake()
+    + bool lastRes()
+    __ Running Process Methods __
+    + void addResource(Resource c)
+    + void deleteRes()
+    + void progress()
+    + void sleeping()
+    + void showProcess()
+}
+
+Resource --* Process
+
+class Scheduler{
+    - n_clock = 0 : int
+    - quantum = 0 : int
+    - counter = 0 : int
+    - run : Process*
+    - wait : vector<Process*>
+    - ready : vector<Process*>
+    - completed : vector<Process*>
+    + bool emptyRun()
+    + bool noProcessAlive()
+    __ Scheduler Methods __
+    + void executeProcess()
+    + void startProcess(Process*)
+    + void sleepProcess(Process*)
+    + void waiting()
+    + void awakeProcess()
+    + void clock ()
+    + void completeProcess(Process*)
+    + void printState()
+    + void statistics()
+}
+
+Process --o Scheduler
+
+@enduml
